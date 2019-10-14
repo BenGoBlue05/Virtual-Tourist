@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE3E41C82354D9D000BEB394 /* VTPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */; };
 		CE550F6923511F1C0083E575 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE550F6823511F1C0083E575 /* Secrets.swift */; };
+		CE550F6B2354BD9C0083E575 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE550F6A2354BD9C0083E575 /* DataController.swift */; };
 		CECCCE6023511051000D820F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCCE5F23511051000D820F /* AppDelegate.swift */; };
 		CECCCE6223511051000D820F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCCE6123511051000D820F /* SceneDelegate.swift */; };
 		CECCCE6423511051000D820F /* VTMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCCE6323511051000D820F /* VTMapViewController.swift */; };
@@ -18,7 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTPhotoViewController.swift; sourceTree = "<group>"; };
 		CE550F6823511F1C0083E575 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		CE550F6A2354BD9C0083E575 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CECCCE5C23511051000D820F /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCCE5F23511051000D820F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CECCCE6123511051000D820F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				CECCCE7023511053000D820F /* Info.plist */,
 				CECCCE6823511051000D820F /* Virtual_Tourist.xcdatamodeld */,
 				CE550F6823511F1C0083E575 /* Secrets.swift */,
+				CE550F6A2354BD9C0083E575 /* DataController.swift */,
+				CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */,
 			);
 			path = "Virtual Tourist";
 			sourceTree = "<group>";
@@ -144,7 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3E41C82354D9D000BEB394 /* VTPhotoViewController.swift in Sources */,
 				CECCCE6A23511051000D820F /* Virtual_Tourist.xcdatamodeld in Sources */,
+				CE550F6B2354BD9C0083E575 /* DataController.swift in Sources */,
 				CE550F6923511F1C0083E575 /* Secrets.swift in Sources */,
 				CECCCE6423511051000D820F /* VTMapViewController.swift in Sources */,
 				CECCCE6023511051000D820F /* AppDelegate.swift in Sources */,
