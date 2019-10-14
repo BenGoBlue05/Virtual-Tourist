@@ -20,6 +20,8 @@ class VTPhotoViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var photos = [Photo]()
     
+    var page = 1
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
@@ -43,7 +45,7 @@ class VTPhotoViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
     
-    fileprivate func fetchPhotos() {
+    fileprivate func loadPhotos() {
         let fetchRequest:NSFetchRequest<Photo> = Photo.fetchRequest()
         let predicate = NSPredicate(format: "pin == %@", pin)
         fetchRequest.predicate = predicate
@@ -63,21 +65,28 @@ class VTPhotoViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchPhotos()
+        loadPhotos()
     }
 
-    func fetchPhotos(page: Int = 1, perPage: Int = 15) {
-        VTClient.shared.getPhotos(pin.latitude, pin.longitude){ result in
+    func fetchPhotos(_ page: Int = 1, _ perPage: Int = 15) {
+        VTClient.shared.getPhotos(pin.latitude, pin.longitude, page: page, perPage: perPage){ result in
             switch result {
             case .error(let message):
                 print(message)
             case .success(let vtPhotos):
+                let context = self.dataController.viewContext
                 let photos: [Photo] = vtPhotos.photos.map { vtPhoto in
-                    let context = self.dataController.viewContext
                     let photo = Photo(context: context)
                     photo.url = self.imageUrl(vtPhoto)
                     return photo
                 }
+                if let oldPhotos = self.pin.photos {
+                    for e in oldPhotos {
+                        let photo = e as! Photo
+                        context.delete(photo)
+                    }
+                }
+                self.page = page
                 self.photos = photos
                 self.pin.photosAvailable = Int32(vtPhotos.total)!
                 self.pin.photos = NSSet(array: photos)
@@ -86,9 +95,27 @@ class VTPhotoViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         }
     }
+    
+    
 
     func imageUrl(_ photo: VTPhoto) -> String {
         return "https://farm\(photo.farm).staticflickr.com/\(photo.server)/\(photo.id)_\(photo.secret).png"
+    }
+    
+    @IBAction func refreshPhotos(_ sender: Any) {
+        
+        if pin.photosAvailable < 16 {
+            fetchPhotos()
+            return
+        }
+        let lastPage = Int(pin.photosAvailable)/15 + 1
+        let oldPage = page
+        var newPage = Int.random(in: 1...lastPage)
+        while newPage == oldPage {
+            newPage = Int.random(in: 1...lastPage)
+        }
+        page = newPage
+        fetchPhotos(newPage)
     }
 }
 

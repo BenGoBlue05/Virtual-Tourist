@@ -54,6 +54,7 @@ class VTMapViewController: UIViewController {
         let pin = Pin(context: dataController.viewContext)
         pin.latitude = coord.latitude
         pin.longitude = coord.longitude
+        pins.append(pin)
         try? dataController.viewContext.save()
     }
 }

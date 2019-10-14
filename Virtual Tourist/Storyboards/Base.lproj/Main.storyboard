@@ -71,7 +71,11 @@
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="O4V-Os-pU0"/>
-                                    <barButtonItem title="New Collection" id="6hp-bw-3fi"/>
+                                    <barButtonItem title="New Collection" id="6hp-bw-3fi">
+                                        <connections>
+                                            <action selector="refreshPhotos:" destination="81W-KW-i1W" id="nQ0-d1-w5b"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="yl6-en-9wj"/>
                                 </items>
                             </toolbar>
