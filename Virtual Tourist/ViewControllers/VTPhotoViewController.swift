@@ -45,6 +45,15 @@ class VTPhotoViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
+        photos.remove(at: indexPath.row)
+        dataController.viewContext.delete(photo)
+        pin.photos = NSSet(array: photos)
+        try? dataController.viewContext.save()
+        collectionView.reloadData()
+    }
+    
     fileprivate func loadPhotos() {
         let fetchRequest:NSFetchRequest<Photo> = Photo.fetchRequest()
         let predicate = NSPredicate(format: "pin == %@", pin)
