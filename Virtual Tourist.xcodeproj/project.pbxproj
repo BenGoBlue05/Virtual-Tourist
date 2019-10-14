@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		CE3E41C82354D9D000BEB394 /* VTPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */; };
+		CE3E41CD2354DEFB00BEB394 /* VTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E41CC2354DEFB00BEB394 /* VTClient.swift */; };
+		CE3E41CF2354DFD500BEB394 /* VTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E41CE2354DFD500BEB394 /* VTResult.swift */; };
+		CE3E41D12354E11300BEB394 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E41D02354E11300BEB394 /* PhotosResponse.swift */; };
+		CE3E41D42354ED2500BEB394 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE3E41D32354ED2500BEB394 /* Kingfisher */; };
+		CE3E41D82354F74600BEB394 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E41D72354F74600BEB394 /* PhotoCollectionViewCell.swift */; };
 		CE550F6923511F1C0083E575 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE550F6823511F1C0083E575 /* Secrets.swift */; };
 		CE550F6B2354BD9C0083E575 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE550F6A2354BD9C0083E575 /* DataController.swift */; };
 		CECCCE6023511051000D820F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCCE5F23511051000D820F /* AppDelegate.swift */; };
@@ -21,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTPhotoViewController.swift; sourceTree = "<group>"; };
+		CE3E41CC2354DEFB00BEB394 /* VTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTClient.swift; sourceTree = "<group>"; };
+		CE3E41CE2354DFD500BEB394 /* VTResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTResult.swift; sourceTree = "<group>"; };
+		CE3E41D02354E11300BEB394 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		CE3E41D72354F74600BEB394 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE550F6823511F1C0083E575 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		CE550F6A2354BD9C0083E575 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CECCCE5C23511051000D820F /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,12 +48,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3E41D42354ED2500BEB394 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE3E41C92354DE9800BEB394 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CECCCE6323511051000D820F /* VTMapViewController.swift */,
+				CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE3E41CA2354DEB200BEB394 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CECCCE6D23511053000D820F /* LaunchScreen.storyboard */,
+				CECCCE6523511051000D820F /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CE3E41CB2354DED800BEB394 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE550F6A2354BD9C0083E575 /* DataController.swift */,
+				CECCCE6823511051000D820F /* Virtual_Tourist.xcdatamodeld */,
+				CE3E41CC2354DEFB00BEB394 /* VTClient.swift */,
+				CE3E41CE2354DFD500BEB394 /* VTResult.swift */,
+				CE3E41D02354E11300BEB394 /* PhotosResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CECCCE5323511051000D820F = {
 			isa = PBXGroup;
 			children = (
@@ -65,16 +105,14 @@
 			isa = PBXGroup;
 			children = (
 				CECCCE5F23511051000D820F /* AppDelegate.swift */,
-				CECCCE6123511051000D820F /* SceneDelegate.swift */,
-				CECCCE6323511051000D820F /* VTMapViewController.swift */,
-				CECCCE6523511051000D820F /* Main.storyboard */,
 				CECCCE6B23511053000D820F /* Assets.xcassets */,
-				CECCCE6D23511053000D820F /* LaunchScreen.storyboard */,
+				CE3E41CB2354DED800BEB394 /* Model */,
 				CECCCE7023511053000D820F /* Info.plist */,
-				CECCCE6823511051000D820F /* Virtual_Tourist.xcdatamodeld */,
+				CE3E41CA2354DEB200BEB394 /* Storyboards */,
+				CECCCE6123511051000D820F /* SceneDelegate.swift */,
 				CE550F6823511F1C0083E575 /* Secrets.swift */,
-				CE550F6A2354BD9C0083E575 /* DataController.swift */,
-				CE3E41C72354D9D000BEB394 /* VTPhotoViewController.swift */,
+				CE3E41C92354DE9800BEB394 /* ViewControllers */,
+				CE3E41D72354F74600BEB394 /* PhotoCollectionViewCell.swift */,
 			);
 			path = "Virtual Tourist";
 			sourceTree = "<group>";
@@ -95,6 +133,9 @@
 			dependencies = (
 			);
 			name = "Virtual Tourist";
+			packageProductDependencies = (
+				CE3E41D32354ED2500BEB394 /* Kingfisher */,
+			);
 			productName = "Virtual Tourist";
 			productReference = CECCCE5C23511051000D820F /* Virtual Tourist.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +164,9 @@
 				Base,
 			);
 			mainGroup = CECCCE5323511051000D820F;
+			packageReferences = (
+				CE3E41D22354ED2500BEB394 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = CECCCE5D23511051000D820F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,10 +196,14 @@
 			files = (
 				CE3E41C82354D9D000BEB394 /* VTPhotoViewController.swift in Sources */,
 				CECCCE6A23511051000D820F /* Virtual_Tourist.xcdatamodeld in Sources */,
+				CE3E41CD2354DEFB00BEB394 /* VTClient.swift in Sources */,
 				CE550F6B2354BD9C0083E575 /* DataController.swift in Sources */,
+				CE3E41CF2354DFD500BEB394 /* VTResult.swift in Sources */,
 				CE550F6923511F1C0083E575 /* Secrets.swift in Sources */,
 				CECCCE6423511051000D820F /* VTMapViewController.swift in Sources */,
+				CE3E41D12354E11300BEB394 /* PhotosResponse.swift in Sources */,
 				CECCCE6023511051000D820F /* AppDelegate.swift in Sources */,
+				CE3E41D82354F74600BEB394 /* PhotoCollectionViewCell.swift in Sources */,
 				CECCCE6223511051000D820F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +402,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE3E41D22354ED2500BEB394 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE3E41D32354ED2500BEB394 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3E41D22354ED2500BEB394 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CECCCE6823511051000D820F /* Virtual_Tourist.xcdatamodeld */ = {

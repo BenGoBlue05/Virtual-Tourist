@@ -83,6 +83,7 @@ extension VTMapViewController : MKMapViewDelegate {
         }
         let vc = storyboard?.instantiateViewController(identifier: "VTPhotoViewController") as! VTPhotoViewController
         vc.pin = pin!
+        vc.dataController = dataController
         navigationController?.pushViewController(vc, animated: true)
     }
 }
